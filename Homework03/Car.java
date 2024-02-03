@@ -5,8 +5,8 @@ public class Car {
     int year = 2000;
     double price = 15000.5;
     boolean isSport;
-    double fuelTankCapacity = 70;
-    double freeFuel = 50;
+    double fuelTankCapacity = 70.0;
+    double freeFuel = 50.0;
     String engineFuelOperationSystem = "";
 
     //no-arg constructors
