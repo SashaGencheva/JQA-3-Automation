@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Task01 {
 
-    public static void CheckBetweenFirstAndSecond(int first, int second, int third)
+    public static void checkBetweenFirstAndSecond(int first, int second, int third)
     {
         int minNum = Math.min(first,second);
         int maxNum = Math.max(first,second);
@@ -43,7 +43,7 @@ public class Task01 {
         System.out.println("\nThird entered number is: " + num3);
 
         System.out.println("\nEntered numbers are: " + num1 + ", " + num2 + ", " + num3);
-        CheckBetweenFirstAndSecond(num1, num2, num3);
+        checkBetweenFirstAndSecond(num1, num2, num3);
         sc.close();
     }
 }
