@@ -3,7 +3,7 @@ package Homework02;
 import java.util.Arrays;
 
 public class Task06 {
-    static boolean isEqual(int[] arr1, int[] arr2){
+    static boolean isEqual(int[] arr1, int[] arr2) {
         //comparing array size and elements one by one
         if (arr1.length != arr2.length)
             return false;
@@ -20,7 +20,7 @@ public class Task06 {
         if(Arrays.equals(arr1, arr2)) {
             System.out.println("\nArrays are equal (using equals() method)!");
         } else {
-            System.out.println("\nArrays are not equals (using equals method)!");
+            System.out.println("\nArrays are not equals (using equals() method)!");
         }
     }
 
@@ -29,12 +29,12 @@ public class Task06 {
         int[] array2 = {1, 2, 3};
 
         System.out.println("\nFirst arrays is: ");
-        for (int i = 0; i < array1.length ; i++) {
+        for (int i = 0; i < array1.length; i++) {
             System.out.print(array1[i] + " ");
         }
 
         System.out.println("\nSecond array is: ");
-        for (int i = 0; i < array2.length ; i++) {
+        for (int i = 0; i < array2.length; i++) {
             System.out.print(array2[i] + " ");
         }
 
