@@ -23,7 +23,7 @@ public class CarPerson {
         System.out.println("\nEnter used fuel: ");
         double usedFuel = Double.parseDouble(sc.nextLine());
 
-        //calling useFuel method for car1 and car2
+        //calling useFuel() method for car1 and car2
         System.out.println("\nNew free fuel of first car is: ");
         car1.useFuel(usedFuel);
         System.out.println("\nNew free fuel of second car is: ");
