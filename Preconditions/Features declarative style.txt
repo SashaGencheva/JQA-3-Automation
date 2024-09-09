@@ -1,0 +1,45 @@
+LoginDeclarativeStyle.feature
+-----------------------------------
+Feature: Loging functionality
+
+  Scenario Outline: Successful login with valid credentials
+    Given user has opened login page
+    When user authenticates with username "<username>" and password "<password>"
+    Then login is successful
+
+    Examples:
+    |  username   |  password  |
+    |standard_user|secret_sauce|
+
+  Scenario Outline: Unsuccessful login with invalid credentials
+    Given user has opened login page
+    When user authenticates with username "<username>" and password "<password>"
+    Then login is unsuccessful "<message>"
+    
+    Examples:
+    |  username   |  password  |                 message                                                 |
+    |user1        |password123 |Epic sadface: Username and password do not match any user in this service| #invalid username and invalid password
+    |standard_user|password123 |Epic sadface: Username and password do not match any user in this service| #valid username and invalid password
+    |user1        |secret_sauce|Epic sadface: Username and password do not match any user in this service| #invalid username and valid password
+    ||secret_sauce|Epic sadface: Username is required| #empty username
+    |standard_user||Epic sadface: Password is required| #empty password
+
+
+OrderDeclarativeStyle.feature
+-----------------------------------
+Feature: Verifying order functionality
+
+  Background: User is logged in
+    Given user has opened login page
+    When user authenticates with username "standard_user" and password "secret_sauce"
+    Then login is successful
+
+  Scenario: Successful order for registered user
+    When user adds product(s) to the cart
+    And user opens shopping cart
+    Then added product(s) is/are displayed
+    When user proceeds to checkout
+    And user fills in checkout form with first name "John" last name "Smith" zip code "1000"
+    Then checkout overview is displayed
+    When user finishes the order
+    Then the order is successfully completed

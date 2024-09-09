@@ -1,0 +1,53 @@
+Login.feature
+-----------------------------------
+Feature: Loging functionality
+
+  Scenario Outline: Successful login with valid credentials
+    Given user has opened login page
+    When user enters username "<username>" and password "<password>"
+    And user clicks on login button
+    Then user is navigated to product listing page
+
+    Examples:
+    |  username   |  password  |
+    |standard_user|secret_sauce|
+
+  Scenario Outline: Unsuccessful login with invalid credentials
+    Given user has opened login page
+    When user enters "<username>" and "<password>"
+    And user clicks on login button
+    Then login error message "<message>" is displayed
+    
+    Examples:
+    |  username   |  password  |                 message                                                 |
+    |user1        |password123 |Epic sadface: Username and password do not match any user in this service| #invalid username and invalid password
+    |standard_user|password123 |Epic sadface: Username and password do not match any user in this service| #valid username and invalid password
+    |user1        |secret_sauce|Epic sadface: Username and password do not match any user in this service| #invalid username and valid password
+    ||secret_sauce|Epic sadface: Username is required| #empty username
+    |standard_user||Epic sadface: Password is required| #empty password
+
+
+Order.feature
+-----------------------------------
+Feature: Verifying order functionality
+
+  Background: User is logged in
+    Given user has opened login page
+    When user enters "standard_user" and "secret_sauce"
+    And user clicks on login button
+    Then user is navigated to product listing page
+
+  Scenario: Successful order for registered user
+    When user adds product(s) to the cart
+    And user clicks on shopping cart icon
+    Then user is navigated to cart page
+    And added product(s) is/are displayed
+    When user clicks on checkout button
+    Then user is navigated to checkout information page
+    When user fills in checkout form first name "John" last name "Smith" zip code "1000"
+    And user clicks on continue button
+    Then user is navigated to checkout overview page
+    And total price information is displayed
+    When user clicks on finish button
+    Then user is navigated to checkout complete page
+    And successful order message "Thank you for your order!" is displayed
