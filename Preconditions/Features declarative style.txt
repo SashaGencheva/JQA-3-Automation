@@ -21,8 +21,8 @@ Feature: Loging functionality
     |user1        |password123 |Epic sadface: Username and password do not match any user in this service| #invalid username and invalid password
     |standard_user|password123 |Epic sadface: Username and password do not match any user in this service| #valid username and invalid password
     |user1        |secret_sauce|Epic sadface: Username and password do not match any user in this service| #invalid username and valid password
-    ||secret_sauce|Epic sadface: Username is required| #empty username
-    |standard_user||Epic sadface: Password is required| #empty password
+    |             |secret_sauce|Epic sadface: Username is required| #empty username
+    |standard_user|            |Epic sadface: Password is required| #empty password
 
 
 OrderDeclarativeStyle.feature
